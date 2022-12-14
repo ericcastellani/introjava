@@ -16,11 +16,12 @@
 
     </ul>
     <script>
-        let list = document.querySelector("ul")
-        let listElements = list.querySelectorAll("li")
-        console.log("la liste",list)
+        let list = document.querySelector("ul") //permet de pointer le 1er selector
+        let listElements = list.querySelectorAll("li") //permet de pointer tous les éléments de la liste
+        console.log("la liste",list) //affiche la liste
         console.log("les élements",listElements)
         listElements.forEach(function(element){
+            console.dir(element)
             element.style.color = "red"
         })
     </script> 
