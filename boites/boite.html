@@ -42,10 +42,12 @@
             newbox.innerText = i
             board.appendChild(newbox)
 
+        
+            newbox.addEventListener("click",function(){
+                console.log("Boite n°"+ i +" , click !")
+                newbox.classList.add("boxclicked")
+            })
         }
-        newbox.addEventListener("click",function(){
-            console.log("Boite n°"+ i +" , click !")
-        })
 
         /* code remplacé par la fonction shuffleChildren()
         let i = board.children.length, k , temp
