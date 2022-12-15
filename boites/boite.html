@@ -10,6 +10,19 @@
 <body>
     <div id="board"></div>
     <script>
+        console.log("bonjour")
+        function shuffleChildren(parent){
+            let children = parent.children
+            let i = children.length, k , temp
+            while(--i > 0){
+                k = Math.floor(Math.random() *(i+1))
+                temp = children[k]
+                children[k] = children[i]
+                parent.appendChild(temp)
+            }
+
+        }
+
         const box = document.createElement("div") /*createElement permet d'instancier 
         un nouvel objet représenté par la balise div */
         box.classList.add("box") /* Modifie la propriété classLIst(contenant la liste des
@@ -28,7 +41,13 @@
             let newbox = box.cloneNode() //création d'une nouvelle variable (newbox)
             newbox.innerText = i
             board.appendChild(newbox)
+
         }
+        newbox.addEventListener("click",function(){
+            console.log("Boite n°"+ i +" , click !")
+        })
+
+        /* code remplacé par la fonction shuffleChildren()
         let i = board.children.length, k , temp
         while (--i > 0){  // on boucle tant que 1 est oté de i est toujours positif
             // k stocke un nombre aléatoire basé sur i
@@ -40,8 +59,9 @@
             // place l'élément k pointé temporairement à la fin du contenu de board
             board.appendChild(temp)
 
-        }
-        
+        }*/
+        shuffleChildren(board)
+
     </script>
 </body>
 </html>
