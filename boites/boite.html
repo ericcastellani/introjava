@@ -22,6 +22,15 @@
             }
 
         }
+        function showReaction(type, clickedBox){
+            clickedBox.classList.add(type)
+            if(type !=="success"){
+                setTimeout(function(){
+                    clickedBox.classList.remove(type)
+                }, 800)
+
+            }
+        }
 
         const box = document.createElement("div") /*createElement permet d'instancier 
         un nouvel objet représenté par la balise div */
@@ -61,7 +70,10 @@
                     faut pas incrémenter nb */ 
                     
                     if (nb == board.children.length){
-                        alert ("Victoire !")
+                        //alert ("Victoire !") /* remplacé par lignes du dessous
+                        board.querySelectorAll(".box").forEach(function(box){
+                            showReaction("success", box)
+                        })
                         }
                         nb++
 
@@ -69,7 +81,10 @@
                     a cliqué sur une boite trop élevé ==> game over  */
                     }
                     else if (i>nb){
-                        alert("Erreur recommencez !")
+
+                        /* alert("Erreur recommencez !") remplacée par ligne du dessous*/
+
+                        showReaction("error", newbox) // on utilise new box et non box
                         nb = 1
                         board.querySelectorAll(".boxclicked").forEach(function(clickedBox){
                             clickedBox.classList.remove("boxclicked") /* Lorsque le jeu doit
@@ -84,7 +99,8 @@
                     le jeu ne redémarre pas */
 
                     else{
-                        alert("Case déjà cliquée !")
+                        /* alert("Case déjà cliquée !") remplacée par ligne du dessous */
+                        showReaction("notice",newbox)
                     }
                 
                 //console.log("Boite n°"+ i +" , click !") //affiche dans la console le n° de boite cliquée
