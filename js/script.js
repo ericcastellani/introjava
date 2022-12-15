@@ -9,11 +9,11 @@ boxes.forEach((box, index)=>{
     //box.style.backgroundcolor = "green"
     //box.classList.add("active")
     box.classList.toggle("active")
+    console.log("boite n°"  +(index+1) + "cliquée");
     
 })})
    
 
-console.log("boite n°"  +(index+1) + "cliquée");
 
 
 

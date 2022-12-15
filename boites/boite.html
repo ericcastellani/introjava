@@ -10,11 +10,37 @@
 <body>
     <div id="board"></div>
     <script>
-        const box = document.createElement("div")
-        box.classList.add("box")
-        const board = document.querySelector("#board")
-        board.appendChild(box)
-        box.innerText = 1
+        const box = document.createElement("div") /*createElement permet d'instancier 
+        un nouvel objet représenté par la balise div */
+        box.classList.add("box") /* Modifie la propriété classLIst(contenant la liste des
+        classes css attribuées  à l'élément) pour lui ajouter la classe .box */
+
+        /*A ce moment, un élément DOM nouveau (<div class = "box"></div>) est intancié en
+        mémoire mais non présent sur la page. Il faut pour cela, lui faire une place dans 
+        le DOM tree. Il faut le placer en enfant de la div #board en ulitsant appenChild() */
+
+        const board = document.querySelector("#board") //querySelector() retourne le 1er élément trouvé dans le css
+
+        //   board.appendChild(box) // placement de l'enfant box dans la div #board
+        //   box.innerText = 1 // permet d'écrire du texte dans la boite
+
+        for (let i = 1;i<=10;i++){ // boucle servant à générer 10 boites
+            let newbox = box.cloneNode() //création d'une nouvelle variable (newbox)
+            newbox.innerText = i
+            board.appendChild(newbox)
+        }
+        let i = board.children.length, k , temp
+        while (--i > 0){  // on boucle tant que 1 est oté de i est toujours positif
+            // k stocke un nombre aléatoire basé sur i
+            k=Math.floor(Math.random() * (i+1))
+            //temp pointe temporairement l'élément à la position k dans board
+            temp = board.children[k]
+            //remplace l'élément à la position k par l'élément à la position i
+            board.children[k] = board.children[i]
+            // place l'élément k pointé temporairement à la fin du contenu de board
+            board.appendChild(temp)
+
+        }
         
     </script>
 </body>
