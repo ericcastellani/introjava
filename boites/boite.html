@@ -71,11 +71,18 @@
                     else if (i>nb){
                         alert("Erreur recommencez !")
                         nb = 1
+                        board.querySelectorAll(".boxclicked").forEach(function(clickedBox){
+                            clickedBox.classList.remove("boxclicked") /* Lorsque le jeu doit
+                            redémarrer de selectionner les boites grisées en passant par 
+                            l'élément board puisqu'il les contient
+                            La méthode querySelectorAll récupère un tableau d'élément sur lesquels
+                            on utilise un forEach permettant de passer chaque élément (représenté par clickedbox)*/
+                        })
                     }
 
                     /*3) Dernière possibilité : le joueur a cliquée sur une boite déjà grisée
                     le jeu ne redémarre pas */
-                    
+
                     else{
                         alert("Case déjà cliquée !")
                     }
@@ -86,7 +93,7 @@
                 })
         }
 
-        /* code remplacé par la fonction shuffleChildren()
+        /* code remplacé par la fonction shuffleChildren() ligne 14
         let i = board.children.length, k , temp
         while (--i > 0){  // on boucle tant que 1 est oté de i est toujours positif
             // k stocke un nombre aléatoire basé sur i
