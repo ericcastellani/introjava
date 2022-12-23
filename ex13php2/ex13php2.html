@@ -8,16 +8,60 @@
 </head>
 <body>
     <script>
-        // création bouton ACCELERER
+        // création de l'objet voiture
+
+        const car = {
+            marque : "Peugeot",
+            modele : "408",
+            porte : 5,
+            vitesse : 0,
+            statut : false,
+
+
+        }
+
+
+        // création bouton Démarrer
         var bouton = document.createElement("BUTTON");  // Créer un élément <button>
-        var txt = document.createTextNode("ACCELERER"); // Créer un noeud textuel
+        var txt = document.createTextNode("DEMARRER"); // Créer un noeud textuel
         bouton.appendChild(txt);                          // Ajouter le texte au bouton
         document.body.appendChild(bouton);              // Ajoute la balise <button> à la balise <body>
         bouton.addEventListener("click", function() {
-            alert("Vous accéler de 10 Km/H");
+            alert("Vous avez démarré");
+            statut = true;
+            vitesse = 0;
+            alert(statut);
+            alert("vitesse : "+vitesse);
         });
 
-        // création bouton FREINER
+
+
+
+        // création bouton ACCELERER
+        
+        var bouton1 = document.createElement("BUTTON");  // Créer un élément <button>
+        var txt1 = document.createTextNode("ACCELERER"); // Créer un noeud textuel
+        bouton1.appendChild(txt1);                          // Ajouter le texte au bouton
+        document.body.appendChild(bouton1);              // Ajoute la balise <button> à la balise <body>
+        bouton1.addEventListener("click", function() {
+            alert("Vous accéler de 10 Km/H");
+            vitesse = vitesse +10;
+            alert("vitesse : "+vitesse);
+        });
+
+        // création bouton STOPPER
+        var bouton2 = document.createElement("BUTTON");  // Créer un élément <button>
+        var txt2 = document.createTextNode("STOPPER"); // Créer un noeud textuel
+        bouton2.appendChild(txt2);                          // Ajouter le texte au bouton
+        document.body.appendChild(bouton2);              // Ajoute la balise <button> à la balise <body>
+        bouton2.addEventListener("click", function() {
+            alert("Vous stoppez");
+            vitesse = 0;
+            statut = false;
+            alert("vitesse : "+vitesse);
+            alert(statut);
+        
+        });
     </script>
 </body>
 </html>
